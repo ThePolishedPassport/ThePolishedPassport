@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Polished Passport by Angela — European Travel Concierge</title>
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Special+Elite&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink: #14213D;
+    --ink-soft: #24325A;
+    --parchment: #F3ECD9;
+    --parchment-dim: #EAE1C8;
+    --gold: #A8285A;
+    --gold-bright: #C94A78;
+    --stamp-red: #A8285A;
+    --paper-line: rgba(20,33,61,0.14);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--parchment);
+    color:var(--ink);
+    font-family:'Instrument Sans', sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  ::selection{background:var(--gold); color:var(--parchment);}
+
+  a{color:inherit;}
+
+  .display{
+    font-family:'Fraunces', serif;
+  }
+  .stamp-font{
+    font-family:'Special Elite', monospace;
+    letter-spacing:0.04em;
+  }
+
+  /* subtle paper texture via layered gradients */
+  body{
+    background-image:
+      radial-gradient(circle at 20% 10%, rgba(185,139,51,0.06), transparent 40%),
+      radial-gradient(circle at 85% 60%, rgba(161,61,61,0.05), transparent 45%);
+  }
+
+  .wrap{max-width:1180px; margin:0 auto; padding:0 28px;}
+
+  /* ===== NAV ===== */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(243,236,217,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--paper-line);
+  }
+  .nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px 28px;
+    max-width:1180px; margin:0 auto;
+  }
+  .brand{
+    display:flex; align-items:baseline; gap:10px;
+    text-decoration:none; color:var(--ink);
+  }
+  .brand-logo{
+    height:52px; width:auto; display:block;
+  }
+  .footer-logo{
+    height:60px;
+  }
+  .brand .mark{
+    font-family:'Fraunces', serif; font-weight:600; font-size:1.4rem;
+  }
+  .brand .sub{
+    font-family:'Special Elite', monospace; font-size:0.62rem;
+    letter-spacing:0.18em; text-transform:uppercase; color:var(--gold);
+  }
+  nav.links{display:flex; gap:28px; font-size:0.92rem;}
+  nav.links a{text-decoration:none; color:var(--ink-soft); position:relative; padding-bottom:2px;}
+  nav.links a:hover{color:var(--stamp-red);}
+  .nav-cta{
+    font-family:'Special Elite', monospace;
+    font-size:0.75rem; letter-spacing:0.08em; text-transform:uppercase;
+    background:var(--ink); color:var(--parchment);
+    padding:10px 18px; border-radius:2px; text-decoration:none;
+    border:1px solid var(--ink);
+    transition:all .2s ease;
+  }
+  .nav-cta:hover{background:transparent; color:var(--ink);}
+
+  @media(max-width:760px){
+    nav.links{display:none;}
+  }
+
+  /* ===== HERO ===== */
+  .hero{
+    position:relative;
+    padding:100px 28px 90px;
+    overflow:hidden;
+    border-bottom:1px solid var(--paper-line);
+  }
+  .hero-inner{
+    max-width:1180px; margin:0 auto;
+    display:grid; grid-template-columns:1.1fr 0.9fr; gap:60px; align-items:center;
+  }
+  @media(max-width:900px){ .hero-inner{grid-template-columns:1fr;} }
+
+  .eyebrow{
+    font-family:'Special Elite', monospace;
+    font-size:0.72rem; letter-spacing:0.22em; text-transform:uppercase;
+    color:var(--stamp-red);
+    display:flex; align-items:center; gap:10px; margin-bottom:22px;
+  }
+  .eyebrow::before{content:''; width:26px; height:1px; background:var(--stamp-red);}
+
+  .hero h1{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-size:clamp(2.6rem, 5vw, 4.2rem);
+    line-height:1.03;
+    margin:0 0 22px;
+    letter-spacing:-0.01em;
+  }
+  .hero h1 em{font-style:italic; color:var(--stamp-red);}
+
+  .hero p.lede{
+    font-size:1.12rem; line-height:1.6; color:var(--ink-soft);
+    max-width:46ch; margin:0 0 34px;
+  }
+
+  .hero-actions{display:flex; gap:16px; flex-wrap:wrap;}
+  .btn-primary{
+    font-family:'Special Elite', monospace;
+    font-size:0.8rem; letter-spacing:0.06em; text-transform:uppercase;
+    background:var(--stamp-red); color:var(--parchment);
+    padding:15px 26px; text-decoration:none; border-radius:2px;
+    border:1px solid var(--stamp-red);
+    transition:all .2s ease;
+  }
+  .btn-primary:hover{background:transparent; color:var(--stamp-red);}
+  .btn-ghost{
+    font-family:'Special Elite', monospace;
+    font-size:0.8rem; letter-spacing:0.06em; text-transform:uppercase;
+    padding:15px 26px; text-decoration:none; border-radius:2px;
+    border:1px solid var(--ink); color:var(--ink);
+    transition:all .2s ease;
+  }
+  .btn-ghost:hover{background:var(--ink); color:var(--parchment);}
+
+  /* passport visual */
+  .passport-visual{
+    position:relative; aspect-ratio:3/4; max-width:340px; margin:0 auto;
+  }
+  .passport-cover{
+    position:absolute; inset:0;
+    background:linear-gradient(155deg, var(--ink) 0%, var(--ink-soft) 100%);
+    border-radius:6px;
+    box-shadow:0 30px 60px -20px rgba(20,33,61,0.5), 0 0 0 1px rgba(255,255,255,0.04) inset;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    color:var(--gold-bright);
+    transform:rotate(-4deg);
+  }
+  .passport-cover .emblem{
+    width:64px; height:64px; border:2px solid var(--gold-bright); border-radius:50%;
+    display:flex; align-items:center; justify-content:center; margin-bottom:18px;
+    font-family:'Fraunces', serif; font-size:1.6rem;
+  }
+  .passport-cover .title{
+    font-family:'Special Elite', monospace; font-size:0.68rem; letter-spacing:0.2em;
+    text-transform:uppercase; text-align:center; opacity:0.9;
+  }
+  .passport-cover .country{
+    font-family:'Fraunces', serif; font-size:1.15rem; margin-top:10px; letter-spacing:0.04em;
+  }
+  .stamp-float{
+    position:absolute; width:96px; height:96px; border-radius:50%;
+    border:2px solid var(--stamp-red); color:var(--stamp-red);
+    display:flex; align-items:center; justify-content:center; text-align:center;
+    font-family:'Special Elite', monospace; font-size:0.6rem; letter-spacing:0.06em;
+    text-transform:uppercase; line-height:1.3;
+    background:rgba(243,236,217,0.85);
+    transform:rotate(12deg);
+    top:-18px; right:-24px;
+    box-shadow:0 8px 18px rgba(20,33,61,0.15);
+  }
+  .stamp-float span{display:block;}
+  @media(max-width:900px){ .passport-visual{margin-top:20px;} }
+
+  /* ===== SECTION HEADERS ===== */
+  .section{padding:96px 28px;}
+  .section.alt{background:var(--parchment-dim); border-top:1px solid var(--paper-line); border-bottom:1px solid var(--paper-line);}
+  .section-head{max-width:640px; margin:0 0 52px;}
+  .section-head .eyebrow{margin-bottom:16px;}
+  .section-head h2{
+    font-family:'Fraunces', serif; font-weight:500;
+    font-size:clamp(2rem, 3.4vw, 2.7rem); margin:0 0 16px; line-height:1.08;
+  }
+  .section-head p{font-size:1.02rem; color:var(--ink-soft); line-height:1.6; margin:0;}
+  .center{text-align:center; margin-left:auto; margin-right:auto;}
+
+  /* ===== DESTINATIONS AS STAMPS ===== */
+  .stamp-grid{
+    display:grid; grid-template-columns:repeat(3, 1fr); gap:26px;
+  }
+  @media(max-width:900px){ .stamp-grid{grid-template-columns:repeat(2,1fr);} }
+  @media(max-width:560px){ .stamp-grid{grid-template-columns:1fr;} }
+
+  .stamp-card{
+    position:relative;
+    background:var(--parchment);
+    border:1.5px dashed var(--paper-line);
+    border-radius:4px;
+    padding:30px 24px 26px;
+    transition:transform .25s ease, border-color .25s ease;
+  }
+  .stamp-card:hover{transform:translateY(-4px); border-color:var(--gold);}
+  .stamp-card .num{
+    font-family:'Special Elite', monospace; font-size:0.68rem; color:var(--gold);
+    letter-spacing:0.15em; text-transform:uppercase; margin-bottom:10px; display:block;
+  }
+  .stamp-card h3{
+    font-family:'Fraunces', serif; font-size:1.4rem; font-weight:500; margin:0 0 10px;
+  }
+  .stamp-card p{font-size:0.92rem; color:var(--ink-soft); line-height:1.55; margin:0;}
+  .stamp-card .badge{
+    position:absolute; top:-14px; right:20px;
+    background:var(--stamp-red); color:var(--parchment);
+    font-family:'Special Elite', monospace; font-size:0.6rem; letter-spacing:0.1em;
+    text-transform:uppercase; padding:5px 10px; border-radius:2px;
+    transform:rotate(3deg);
+  }
+
+  /* ===== DISNEY / CRUISE STRIP ===== */
+  .duo-grid{display:grid; grid-template-columns:1fr 1fr; gap:26px;}
+  @media(max-width:760px){ .duo-grid{grid-template-columns:1fr;} }
+  .duo-card{
+    background:var(--ink); color:var(--parchment);
+    border-radius:6px; padding:38px 34px;
+    position:relative; overflow:hidden;
+  }
+  .duo-card::after{
+    content:''; position:absolute; inset:0;
+    background:radial-gradient(circle at 90% 0%, rgba(214,169,79,0.18), transparent 55%);
+  }
+  .duo-card h3{
+    font-family:'Fraunces', serif; font-size:1.6rem; margin:0 0 12px; position:relative;
+  }
+  .duo-card p{color:rgba(243,236,217,0.78); line-height:1.6; margin:0 0 18px; position:relative;}
+  .duo-card ul{margin:0; padding:0; list-style:none; position:relative;}
+  .duo-card li{
+    font-family:'Special Elite', monospace; font-size:0.8rem;
+    padding:8px 0; border-top:1px solid rgba(243,236,217,0.14);
+    display:flex; justify-content:space-between; gap:10px;
+  }
+  .duo-card li:first-of-type{border-top:none;}
+
+  /* ===== PROCESS ===== */
+  .process-strip{
+    display:flex; flex-wrap:wrap; gap:0; border-top:1px solid var(--paper-line); border-bottom:1px solid var(--paper-line);
+  }
+  .process-step{
+    flex:1; min-width:220px; padding:34px 26px; border-right:1px solid var(--paper-line);
+  }
+  .process-step:last-child{border-right:none;}
+  .process-step .stamp-font{font-size:0.68rem; color:var(--gold); text-transform:uppercase;}
+  .process-step h4{font-family:'Fraunces', serif; font-size:1.15rem; margin:10px 0 8px;}
+  .process-step p{font-size:0.88rem; color:var(--ink-soft); line-height:1.55; margin:0;}
+
+  /* ===== FORM: BOARDING PASS ===== */
+  .boarding-pass{
+    max-width:760px; margin:0 auto;
+    background:var(--parchment);
+    border:1px solid var(--ink);
+    border-radius:8px;
+    display:grid; grid-template-columns:1fr;
+    box-shadow:0 40px 80px -40px rgba(20,33,61,0.35);
+    position:relative;
+  }
+  .bp-header{
+    display:flex; justify-content:space-between; align-items:center;
+    background:var(--ink); color:var(--parchment);
+    padding:20px 30px; border-radius:8px 8px 0 0;
+  }
+  .bp-header .stamp-font{font-size:0.7rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--gold-bright);}
+  .bp-header .route{font-family:'Fraunces', serif; font-size:1.3rem;}
+
+  .bp-body{padding:34px 34px 10px;}
+  .bp-perf{
+    position:relative; height:1px; margin:0 0 30px;
+    border-top:2px dashed var(--paper-line);
+  }
+  .bp-perf::before, .bp-perf::after{
+    content:''; position:absolute; top:-11px; width:22px; height:22px;
+    background:var(--parchment-dim); border-radius:50%; border:1px solid var(--paper-line);
+  }
+  .bp-perf::before{left:-45px;}
+  .bp-perf::after{right:-45px;}
+
+  .field-row{display:grid; grid-template-columns:1fr 1fr; gap:22px; margin-bottom:26px;}
+  @media(max-width:560px){ .field-row{grid-template-columns:1fr;} }
+  .field{display:flex; flex-direction:column; gap:8px;}
+  .field label{
+    font-family:'Special Elite', monospace; font-size:0.68rem; letter-spacing:0.12em;
+    text-transform:uppercase; color:var(--ink-soft);
+  }
+  .field input, .field textarea, .field select{
+    font-family:'Instrument Sans', sans-serif; font-size:1rem;
+    background:transparent; border:none; border-bottom:1.5px solid var(--paper-line);
+    padding:8px 2px; color:var(--ink); outline:none;
+    transition:border-color .2s ease;
+  }
+  .field input:focus, .field textarea:focus, .field select:focus{border-color:var(--stamp-red);}
+  .field textarea{resize:vertical; min-height:70px;}
+
+  .destinations-block{margin-bottom:28px;}
+  .destinations-block > label{
+    font-family:'Special Elite', monospace; font-size:0.68rem; letter-spacing:0.12em;
+    text-transform:uppercase; color:var(--ink-soft); display:block; margin-bottom:14px;
+  }
+  .dest-checks{
+    display:grid; grid-template-columns:repeat(3, 1fr); gap:12px 16px;
+  }
+  @media(max-width:640px){ .dest-checks{grid-template-columns:repeat(2,1fr);} }
+  .dest-check{
+    display:flex; align-items:center; gap:9px;
+    font-size:0.92rem; cursor:pointer;
+    padding:6px 0;
+  }
+  .dest-check input{
+    appearance:none; -webkit-appearance:none;
+    width:17px; height:17px; border:1.5px solid var(--ink-soft); border-radius:3px;
+    display:inline-flex; align-items:center; justify-content:center; flex:none;
+    cursor:pointer; position:relative; top:0;
+  }
+  .dest-check input:checked{background:var(--stamp-red); border-color:var(--stamp-red);}
+  .dest-check input:checked::after{
+    content:'✓'; color:var(--parchment); font-size:11px; position:absolute; inset:0;
+    display:flex; align-items:center; justify-content:center;
+  }
+
+  .bp-footer{
+    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;
+    padding:22px 34px 30px;
+  }
+  .submit-btn{
+    font-family:'Special Elite', monospace; font-size:0.85rem; letter-spacing:0.08em; text-transform:uppercase;
+    background:var(--stamp-red); color:var(--parchment); border:1px solid var(--stamp-red);
+    padding:15px 30px; border-radius:2px; cursor:pointer; transition:all .2s ease;
+  }
+  .submit-btn:hover{background:transparent; color:var(--stamp-red);}
+  .fine-print{font-size:0.78rem; color:var(--ink-soft); max-width:280px; line-height:1.5;}
+
+  .form-note{
+    max-width:760px; margin:18px auto 0; font-size:0.82rem; color:var(--ink-soft);
+    text-align:center; line-height:1.6;
+  }
+  .form-note a{color:var(--stamp-red); text-decoration:underline;}
+
+  #form-status{
+    max-width:760px; margin:18px auto 0; text-align:center;
+    font-family:'Special Elite', monospace; font-size:0.85rem; display:none;
+    padding:14px 18px; border-radius:4px;
+  }
+  #form-status.show{display:block;}
+  #form-status.ok{background:rgba(31,92,82,0.12); color:#1F5C52; display:block;}
+  #form-status.err{background:rgba(161,61,61,0.1); color:var(--stamp-red); display:block;}
+
+  /* ===== FOOTER ===== */
+  footer{
+    background:var(--ink); color:rgba(243,236,217,0.7);
+    padding:56px 28px 34px;
+  }
+  .footer-inner{
+    max-width:1180px; margin:0 auto;
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:30px;
+    border-bottom:1px solid rgba(243,236,217,0.14); padding-bottom:34px;
+  }
+  footer .brand .mark{color:var(--parchment);}
+  footer .brand .sub{color:var(--gold-bright);}
+  .footer-links{display:flex; gap:60px; flex-wrap:wrap;}
+  .footer-col h5{
+    font-family:'Special Elite', monospace; font-size:0.66rem; letter-spacing:0.14em;
+    text-transform:uppercase; color:var(--gold-bright); margin:0 0 14px;
+  }
+  .footer-col a{display:block; font-size:0.88rem; color:rgba(243,236,217,0.75); text-decoration:none; margin-bottom:9px;}
+  .footer-col a:hover{color:var(--parchment);}
+  .footer-bottom{
+    max-width:1180px; margin:22px auto 0; display:flex; justify-content:space-between;
+    font-size:0.76rem; color:rgba(243,236,217,0.5); flex-wrap:wrap; gap:10px;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{transition:none !important; animation:none !important;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a href="#top" class="brand">
+      <img src="logo.png" alt="The Polished Passport by Angela" class="brand-logo">
+    </a>
+    <nav class="links">
+      <a href="#destinations">Destinations</a>
+      <a href="#disney-cruise">Disney &amp; Cruises</a>
+      <a href="#process">How It Works</a>
+      <a href="https://thepolishedpassport.substack.com" target="_blank" rel="noopener">My Blogs</a>
+      <a href="#request">Request</a>
+    </nav>
+    <a href="#request" class="nav-cta">Start a Request</a>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="hero-inner">
+    <div>
+      <div class="eyebrow">Independent European Travel Concierge</div>
+      <h1>Here's to <em>Unforgettable</em> Journeys.</h1>
+      <p class="lede">The Polished Passport plans considered, well-paced trips across Europe — from the fjords of Scandinavia to the coves of Greece — plus Disney parks abroad and cruise itineraries. One request, one point of contact, no guesswork.</p>
+      <div class="hero-actions">
+        <a href="#request" class="btn-primary">Submit a Travel Request</a>
+        <a href="#destinations" class="btn-ghost">See Destinations</a>
+      </div>
+    </div>
+    <div class="passport-visual">
+      <div class="passport-cover">
+        <div class="emblem">PP</div>
+        <div class="title">Passport</div>
+        <div class="country">The Polished Passport</div>
+      </div>
+      <div class="stamp-float"><span>Request<br>Received</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="destinations">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Destinations to Think About</div>
+      <h2>Eight regions, one steady hand.</h2>
+      <p>Every destination below is planned personally — pacing, neighborhoods, and logistics considered for how your group actually travels.</p>
+    </div>
+
+    <div class="stamp-grid">
+      <div class="stamp-card">
+        <span class="badge">Fjords &amp; Cities</span>
+        <span class="num">Region 01</span>
+        <h3>Scandinavia</h3>
+        <p>Norway's fjords, Copenhagen's design streets, and Stockholm's archipelago — paced for slow mornings and long light.</p>
+      </div>
+      <div class="stamp-card">
+        <span class="num">Region 02</span>
+        <h3>Italy</h3>
+        <p>Rome, the Amalfi Coast, Tuscany, and beyond — from first-timers' classics to return-visit detours.</p>
+      </div>
+      <div class="stamp-card">
+        <span class="num">Region 03</span>
+        <h3>Greece</h3>
+        <p>Athens, Santorini, and the lesser-known islands — ferry logistics handled so you're not the one figuring them out.</p>
+      </div>
+      <div class="stamp-card">
+        <span class="num">Region 04</span>
+        <h3>Scotland</h3>
+        <p>Edinburgh, the Highlands, and island-hopping the west coast — castles, distilleries, and proper walking routes.</p>
+      </div>
+      <div class="stamp-card">
+        <span class="num">Region 05</span>
+        <h3>Ireland</h3>
+        <p>Dublin, the Ring of Kerry, and the Wild Atlantic Way — built around driving comfort and pub-worthy evenings.</p>
+      </div>
+      <div class="stamp-card">
+        <span class="num">Region 06</span>
+        <h3>England</h3>
+        <p>London anchored, with the Cotswolds, Bath, or the Lakes woven in depending on your pace.</p>
+      </div>
+      <div class="stamp-card">
+        <span class="num">Region 07</span>
+        <h3>France</h3>
+        <p>Paris, the Loire Valley, Provence, and the Côte d'Azur — planned around what your group actually wants to see.</p>
+      </div>
+      <div class="stamp-card">
+        <span class="num">Region 08</span>
+        <h3>Spain</h3>
+        <p>Barcelona, Madrid, Andalusia, and the coast — tapas routes and siesta-aware scheduling included.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section alt" id="disney-cruise">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Beyond the Continent</div>
+      <h2>Disney parks &amp; cruise lines.</h2>
+      <p>Two more ways Angela plans — for families chasing the parks, and travelers who'd rather unpack once.</p>
+    </div>
+
+    <div class="duo-grid">
+      <div class="duo-card">
+        <h3>Disney, Worldwide</h3>
+        <p>Every Disney destination except Disneyland California — planned with park-day pacing and ride strategy included.</p>
+        <ul>
+          <li><span>Walt Disney World</span><span>Florida</span></li>
+          <li><span>Disneyland Paris</span><span>France</span></li>
+          <li><span>Tokyo Disney Resort</span><span>Japan</span></li>
+          <li><span>Hong Kong Disneyland</span><span>China</span></li>
+          <li><span>Shanghai Disney Resort</span><span>China</span></li>
+        </ul>
+      </div>
+      <div class="duo-card">
+        <h3>Cruise Lines</h3>
+        <p>Mediterranean, Northern European, and transatlantic itineraries — cabin selection, port days, and embarkation logistics included.</p>
+        <ul>
+          <li><span>Royal Caribbean</span><span>Multi-port</span></li>
+          <li><span>Norwegian fjords</span><span>Scenic sailing</span></li>
+          <li><span>Disney Cruise Line</span><span>Family</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="process">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">The Process</div>
+      <h2>How a request becomes a trip.</h2>
+    </div>
+  </div>
+  <div class="process-strip">
+    <div class="process-step">
+      <div class="stamp-font">Step One</div>
+      <h4>You submit a request</h4>
+      <p>Name, destination, and group size — sent directly to Angela.</p>
+    </div>
+    <div class="process-step">
+      <div class="stamp-font">Step Two</div>
+      <h4>The Polished Passport reviews</h4>
+      <p>She reads every request personally and replies with next steps.</p>
+    </div>
+    <div class="process-step">
+      <div class="stamp-font">Step Three</div>
+      <h4>You talk specifics</h4>
+      <p>Dates, budget, and pace get worked out together, by email or call.</p>
+    </div>
+    <div class="process-step">
+      <div class="stamp-font">Step Four</div>
+      <h4>Your itinerary is built</h4>
+      <p>A complete, considered plan — ready to book.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section alt" id="request">
+  <div class="section-head center">
+    <div class="eyebrow">Start Here</div>
+    <h2>Submit a travel request.</h2>
+    <p>Fill this out and it goes straight to Angela's inbox — no account needed.</p>
+  </div>
+
+  <form class="boarding-pass" id="travel-form">
+    <div class="bp-header">
+      <span class="stamp-font">Boarding Pass · Request</span>
+      <span class="route">PPA &nbsp;→&nbsp; EUR</span>
+    </div>
+    <div class="bp-body">
+      <div class="bp-perf"></div>
+
+      <div class="field-row">
+        <div class="field">
+          <label for="fullname">Full Name</label>
+          <input type="text" id="fullname" name="fullname" required placeholder="Jane Whitfield">
+        </div>
+        <div class="field">
+          <label for="travelers">Number of People Traveling</label>
+          <input type="number" id="travelers" name="travelers" min="1" required placeholder="e.g. 4">
+        </div>
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" required placeholder="jane@email.com">
+        </div>
+        <div class="field">
+          <label for="phone">Phone (optional)</label>
+          <input type="tel" id="phone" name="phone" placeholder="(555) 555-5555">
+        </div>
+      </div>
+
+      <div class="destinations-block">
+        <label>Destination(s) of Interest — select all that apply</label>
+        <div class="dest-checks">
+          <label class="dest-check"><input type="checkbox" name="destination" value="Scandinavia"> Scandinavia</label>
+          <label class="dest-check"><input type="checkbox" name="destination" value="Italy"> Italy</label>
+          <label class="dest-check"><input type="checkbox" name="destination" value="Greece"> Greece</label>
+          <label class="dest-check"><input type="checkbox" name="destination" value="Scotland"> Scotland</label>
+          <label class="dest-check"><input type="checkbox" name="destination" value="Ireland"> Ireland</label>
+          <label class="dest-check"><input type="checkbox" name="destination" value="England"> England</label>
+          <label class="dest-check"><input type="checkbox" name="destination" value="France"> France</label>
+          <label class="dest-check"><input type="checkbox" name="destination" value="Spain"> Spain</label>
+          <label class="dest-check"><input type="checkbox" name="destination" value="Disney (all except Disneyland California)"> Disney (all except Disneyland CA)</label>
+          <label class="dest-check"><input type="checkbox" name="destination" value="Cruise Line"> Cruise Line</label>
+        </div>
+      </div>
+
+      <div class="field" style="margin-bottom:8px;">
+        <label for="notes">Additional Notes (optional)</label>
+        <textarea id="notes" name="notes" placeholder="Preferred dates, budget range, occasion, anything else Angela should know."></textarea>
+      </div>
+    </div>
+
+    <div class="bp-footer">
+      <p class="fine-print">By submitting, your request opens in your email app addressed to Angela. Nothing is sent until you hit send there.</p>
+      <button type="submit" class="submit-btn">Send Request</button>
+    </div>
+  </form>
+
+  <p class="form-note">
+    Prefer to email directly? Write to <a href="mailto:angela@thepolishedpassport.co">angela@thepolishedpassport.co</a> or call <a href="tel:+18657656088">865-765-6088</a>.
+  </p>
+  <div id="form-status"></div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <a href="#top" class="brand">
+        <img src="logo.png" alt="The Polished Passport by Angela" class="brand-logo footer-logo">
+      </a>
+      <p style="max-width:280px; font-size:0.86rem; margin-top:14px; line-height:1.6;">
+        An independent European travel concierge. Every itinerary planned personally, start to finish.
+      </p>
+    </div>
+    <div class="footer-links">
+      <div class="footer-col">
+        <h5>Destinations</h5>
+        <a href="#destinations">Scandinavia</a>
+        <a href="#destinations">Italy</a>
+        <a href="#destinations">Greece</a>
+        <a href="#destinations">Scotland</a>
+      </div>
+      <div class="footer-col">
+        <h5>More</h5>
+        <a href="#destinations">Ireland</a>
+        <a href="#destinations">England</a>
+        <a href="#destinations">France</a>
+        <a href="#destinations">Spain</a>
+      </div>
+      <div class="footer-col">
+        <h5>Contact</h5>
+        <a href="mailto:angela@thepolishedpassport.co">angela@thepolishedpassport.co</a>
+        <a href="tel:+18657656088">865-765-6088</a>
+        <a href="https://thepolishedpassport.substack.com" target="_blank" rel="noopener">My Blogs</a>
+        <a href="#request">Submit a Request</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© <span id="year"></span> The Polished Passport by Angela. All rights reserved.</span>
+    <span>Independent travel planning — not affiliated with Disney or any cruise line.</span>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const form = document.getElementById('travel-form');
+  const status = document.getElementById('form-status');
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+
+    const fullname = document.getElementById('fullname').value.trim();
+    const travelers = document.getElementById('travelers').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const notes = document.getElementById('notes').value.trim();
+    const destinations = Array.from(document.querySelectorAll('input[name="destination"]:checked')).map(el => el.value);
+
+    if(destinations.length === 0){
+      status.className = 'err show';
+      status.textContent = 'Please select at least one destination before sending.';
+      status.scrollIntoView({behavior:'smooth', block:'center'});
+      return;
+    }
+
+    const subject = `Travel Request — ${fullname}`;
+    const bodyLines = [
+      `Name: ${fullname}`,
+      `Number of People Traveling: ${travelers}`,
+      `Email: ${email}`,
+      phone ? `Phone: ${phone}` : null,
+      `Destination(s): ${destinations.join(', ')}`,
+      notes ? `Notes: ${notes}` : null
+    ].filter(Boolean);
+
+    const mailto = `mailto:angela@thepolishedpassport.co?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join('\n'))}`;
+
+    window.location.href = mailto;
+
+    status.className = 'ok show';
+    status.textContent = 'Opening your email app with this request addressed to Angela — just hit send there.';
+    status.scrollIntoView({behavior:'smooth', block:'center'});
+  });
+</script>
+
+</body>
+</html>
